@@ -20,11 +20,11 @@ if [ -z "${LFS}" ]; then
 	exit 1
 fi
 echo "LFS: $LFS OK"
-if [ -z "${LFS_TGT}" ]; then
-   echo "LFS_TGT n'existe pas"
+if [ -z "${LFS_TARGET}" ]; then
+   echo "LFS_TARGET n'existe pas"
    exit 1
 fi
-echo "LFS_TGT: $LFS_TGT OK"
+echo "LFS_TARGET: $LFS_TARGET OK"
 
 # Checking the user
 
