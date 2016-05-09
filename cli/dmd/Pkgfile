@@ -70,8 +70,8 @@ build(){
     cp -Rf man/man5/*.5 $PKG/usr/share/man/man5/
 
     # doc
-    mkdir -p $PKG/usr/share/doc/$pkgname-$pkgver/
-    cp -Rf html/d/* $PKG/usr/share/doc/$pkgname-$pkgver/
+    mkdir -p $PKG/usr/share/doc/$name-$version/
+    cp -Rf html/d/* $PKG/usr/share/doc/$name-$version/
                 
     # desktop integration
     install -Dm644 $SRC/$name.desktop \
