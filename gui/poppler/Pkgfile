@@ -1,11 +1,11 @@
-# Description: PDF rendering library based on xpdf 3.0
-# URL: URL: http://poppler.freedesktop.org/
-# Packager: alienus at nutyx dot org
 # Depends on: xorg-libxxf86vm libpng xorg-fontconfig libjpeg-turbo cairo libxml2 openjpeg lcms2 
 
+description="PDF rendering library based on xpdf 3.0"
+url="http://poppler.freedesktop.org/"
+packager="alienus at nutyx dot org, tnut at nutyx dot org"
 dataversion=0.4.7
 name=poppler
-version=0.42.0
+version=0.50.0
 release=1
 
 source=(
@@ -14,14 +14,13 @@ http://poppler.freedesktop.org/poppler-data-$dataversion.tar.gz)
 
 build() {
 cd poppler-$version
- 
-    ./configure --prefix=/usr      \
-            --sysconfdir=/etc      \
-            --disable-static       \
-            --disable-poppler-qt4  \
-            --disable-poppler-qt5  \
-            --disable-poppler-glib \
-            --enable-xpdf-headers
+sed -i "/was moved/s/^/#/" ltmain.sh 
+./configure --prefix=/usr      \
+	--sysconfdir=/etc      \
+	--disable-static       \
+	--enable-build-type=release \
+	--enable-cmyk               \
+	--enable-xpdf-headers
 
 make
 make DESTDIR=$PKG install
@@ -31,6 +30,7 @@ make prefix=/usr DESTDIR=$PKG install
 
 rm -f $PKG/usr/lib/pkgconfig/poppler-{glib,qt4,qt5}.pc
 rm -f $PKG/usr/lib/poppler-{glib*,qt4*,qt5*}
+rm -f $PKG/usr/lib/libpoppler-{glib*,qt4*,qt5*}
 
 rm -f $PKG/usr/bin/poppler-glib-demo
 rm -rf $PKG/usr/include/poppler/glib/

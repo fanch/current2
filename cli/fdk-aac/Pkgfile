@@ -9,9 +9,11 @@ release=1
 source=(http://downloads.sourceforge.net/opencore-amr/$name-$version.tar.gz)
 
 build() {
+
 cd $name-$version
 CXXFLAGS+=' -std=c++11 -Wno-narrowing'
 ./configure --prefix=/usr
 make
+
 make DESTDIR=$PKG install
 }

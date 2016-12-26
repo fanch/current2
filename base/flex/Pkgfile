@@ -1,19 +1,20 @@
-# Description: A tool for generating text-scanning programs
-# URL: http://flex.sourceforge.net
-# Maintainers: Will Estes,John Millaway,Aaron Stone,Vern Paxson,Van Jacobson,Jef Poskanzer,Kevin Gong,Vern Paxson
-# Packager: pierre at nutyx dot org
-
+maintainer="Will Estes,John Millaway,Aaron Stone,Vern Paxson,Van Jacobson,Jef Poskanzer,Kevin Gong,Vern Paxson"
+description="A tool for generating text-scanning programs"
+packager="pierre at nutyx dot org"
+url="http://flex.sourceforge.net"
 name=flex
-version=2.6.0
-release=1
+version=2.6.2
+release=2
 
-source=(http://prdownloads.sourceforge.net/flex/flex-$version.tar.xz)
-
+source=(https://github.com/westes/flex/releases/download/v${version}/flex-$version.tar.gz
+	http://www.linuxfromscratch.org/patches/lfs/development/flex-$version-fixes-1.patch)
 build()
 {
 cd flex-$version
-sed -i -e '/test-bison/d' tests/Makefile.in
+patch -Np1 -i ../flex-$version-fixes-1.patch
+touch src/scan.*
 
+HELP2MAN=`which true` \
 ./configure --prefix=/usr \
 --libdir=/lib --bindir=/bin --sbindir=/sbin \
 --docdir=/usr/share/doc/flex-$version

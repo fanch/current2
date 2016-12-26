@@ -4,13 +4,15 @@
 # Depends on: python python-numpy python-setuptools 
 
 name=python-fonttools
-version=2.4
-release=1
+version=3.0
+release=2
 
-source=(http://pypi.python.org/packages/source/F/FontTools/FontTools-$version.tar.gz)
+PKGMK_KEEP_SOURCES="no"
+
+source=(https://github.com/behdad/fonttools/archive/$version.tar.gz)
 
 build() {
-    cd FontTools-$version
+    cd fonttools*
     python2 setup.py build install --root=$PKG       
 }
 

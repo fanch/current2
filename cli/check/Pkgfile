@@ -1,16 +1,15 @@
-# Description: unit testing framework for C
-# URL:	http://check.sourceforge.net/
-# Maintainer: Branden Archer <b dot m dot archer4 at gmail dot com>
-# Packager: tnut at nutyx dot org
-
+description="Check is a unit testing framework for C."
 name=check
 version=0.10.0
 release=1
-source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
-
-build () {
+source=(http://sourceforge.net/projects/check/files/check/$version/$name-$version.tar.gz )
+build()
+{
 cd $name-$version
-./configure --prefix=/usr --disable-static
+
+./configure --prefix=/usr
+
 make
-make DESTDIR=$PKG install
+
+make DESTDIR=$PKG docdir=/usr/share/doc/check-$version install
 }

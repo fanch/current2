@@ -4,7 +4,7 @@
 # Depends on: libedit pcre python-docutils 
 
 name=varnish
-version=4.1.0
+version=4.1.2
 release=1
 
 source=(
@@ -13,6 +13,8 @@ varnish.service)
 
 build(){
     cd $name-$version
+    # https://github.com/varnish/Varnish-Cache/pull/88
+    [[ $PKGMK_ARCH == i686 ]] && CFLAGS+=' -ffloat-store -fexcess-precision=standard'
     ./configure --prefix=/usr \
                 --sysconfdir=/etc \
                 --localstatedir=/var/lib

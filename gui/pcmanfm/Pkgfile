@@ -1,0 +1,18 @@
+# Depends on: libfm, lxde-menu-data
+
+url="http://pcmanfm.sourceforge.net/"
+maintainer="git.lxde.org/gitweb/?p=debian/pcmanfm.git;a=summary"
+packager="tnut at nutyx dot org"
+description="contains an extremely fast, lightweight, yet feature-rich file manager with tabbed browsing"
+name=pcmanfm
+version=1.2.5
+release=1
+
+source=(http://downloads.sourceforge.net/${name}/${name}-$version.tar.xz)
+build () {
+cd $name-$version
+./configure --prefix=/usr --sysconfdir=/etc
+make
+make DESTDIR=$PKG install
+sed -i 's/System;//' $PKG/usr/share/applications/pcmanfm.desktop
+}
