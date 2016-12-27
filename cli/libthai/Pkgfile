@@ -4,10 +4,10 @@
 # Depends on: libdatrie 
 
 name=libthai
-version=0.1.24
+version=0.1.25
 release=1
 
-source=(https://mirrors.kernel.org/debian/pool/main/libt/${name}/${name}_${version}.orig.tar.xz)
+source=(http://linux.thai.net/pub/thailinux/software/${name}/${name}-${version}.tar.xz)
 
 build() {
 	cd $name-$version
