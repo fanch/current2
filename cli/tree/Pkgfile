@@ -5,7 +5,7 @@ name=tree
 version=1.7.0
 release=2
 
-source=(ftp://mama.indstate.edu/linux/$name/$name-$version.tgz)
+source=(http://mama.indstate.edu/users/ice/$name/src/$name-$version.tgz)
 
 build () {
 
