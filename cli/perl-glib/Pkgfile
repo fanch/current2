@@ -5,7 +5,7 @@
 run=( perl )
 
 name=perl-glib
-version=1.321
+version=1.324
 release=1
 
 source=(http://www.cpan.org/authors/id/X/XA/XAOC/Glib-$version.tar.gz)
