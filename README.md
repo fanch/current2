@@ -76,7 +76,7 @@ First we get the current git of houaphan localy (step1) as normal user. As we wa
 
 #### 4. In your chroot Make the directory where the git copy will comes
 
-    # mkdir -v /mnt/lfs/root/current
+    # mkdir -v /mnt/lfs/root/{current,extra}
 
 #### 5. Mount your git project (assume below the user is 'lfs' so adapt to yours)
 
