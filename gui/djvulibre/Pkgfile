@@ -9,8 +9,7 @@ name=djvulibre
 version=3.5.27
 release=1
 
-source=(
-http://downloads.sourceforge.net/djvu/$name-$version.tar.gz)
+source=(http://downloads.sourceforge.net/project/djvu/DjVuLibre/$version/$name-$version.tar.gz)
 
 build(){
     cd $name-$version
